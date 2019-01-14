@@ -11,4 +11,11 @@ describe Account do
   it 'can print time of a transaction' do
     expect(account.date.class).to eq Time
   end
+
+  describe "#deposit" do
+    it 'can deposit money' do
+      account.deposit(50)
+      expect(account.balance).to eq 150
+    end
+  end
 end

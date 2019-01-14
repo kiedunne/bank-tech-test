@@ -9,4 +9,10 @@ class Account
     @amount = 0
     @date = Time.now
   end
+
+  def deposit(amount)
+    @balance += amount
+  end
+
+
 end

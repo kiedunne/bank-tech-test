@@ -19,13 +19,4 @@ describe Account do
       expect { account.withdrawal(50) }.to change { account.balance }.by(-50)
     end
   end
-
-  describe '#update_statement' do
-    it 'can store amount withdrawn, balance, and date in a transaction' do
-      account.withdrawal(50)
-      expect(account.statement.flatten).to include(account.amount)
-      expect(account.statement.flatten).to include(account.balance)
-      expect(account.statement.flatten).to include(a_kind_of(Time))
-    end
-  end
 end

@@ -26,14 +26,4 @@ class Account
     @time = Time.new.strftime('%d/%m/%Y')
     @transactions.unshift([@time, @amount, format('%.2f', @balance)])
   end
-
-  def print_statement
-    @statement = @transactions.map { |transaction| transaction.join(' || ') }
-    header
-    puts @statement
-  end
-
-  def header
-    puts 'date || credit || debit || balance'
-  end
 end

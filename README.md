@@ -4,6 +4,29 @@
 Bank Tech Test
 =================
 
+### Local Setup
+
+```
+git clone https://github.com/kiedunne/bank-tech-test.git
+cd bank-tech-test
+bundle install
+```
+
+### Run Tests
+
+```
+rspec
+```
+
+### Technology
+
+* Ruby
+* RSpec
+* Rubocop
+* Coveralls
+* SimpleCov
+* Travis CI
+
 ### Requirements
 
 * You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)

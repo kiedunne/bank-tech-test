@@ -12,10 +12,17 @@ describe Account do
     expect(account.date.class).to eq Time
   end
 
-  describe "#deposit" do
+  describe '#deposit' do
     it 'can deposit money' do
       account.deposit(50)
       expect(account.balance).to eq 150
+    end
+  end
+
+  describe '#withdrawal' do
+    it 'can withdrawal money' do
+      account.withdrawal(50)
+      expect(account.balance).to eq 50
     end
   end
 end

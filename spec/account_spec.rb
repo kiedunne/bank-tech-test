@@ -7,4 +7,8 @@ describe Account do
   it 'can print initial account balance' do
     expect(account.balance).to eq 100
   end
+
+  it 'can print time of a transaction' do
+    expect(account.date.class).to eq Time
+  end
 end

@@ -10,13 +10,13 @@ describe Account do
 
   describe '#deposit' do
     it 'can deposit money' do
-      expect { account.deposit(50) }.to change { account.balance }.by(50)
+      expect { account.deposit(1000) }.to change { account.balance }.by(1000)
     end
   end
 
   describe '#withdrawal' do
     it 'can withdrawal money' do
-      expect { account.withdrawal(50) }.to change { account.balance }.by(-50)
+      expect { account.withdrawal(500) }.to change { account.balance }.by(-500)
     end
   end
 end

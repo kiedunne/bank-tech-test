@@ -11,24 +11,26 @@ class Account
   end
 
   def deposit(amount)
-    @amount = amount
-    @balance += @amount
+    @balance += amount
+    @amount = format('%.2f', amount) + ' ||'
     update_statement
   end
 
   def withdrawal(amount)
-    @amount = amount
     @balance -= amount
+    @amount = '|| ' + format('%.2f', amount)
     update_statement
   end
 
   def update_statement
-    @transactions << [Time.new.strftime('%d%m%Y'), @amount, @balance]
+    @time = Time.new.strftime('%d/%m/%Y')
+    @transactions.unshift([@time, @amount, format('%.2f', @balance)])
   end
 
   def print_statement
-    header
     @statement = @transactions.map { |transaction| transaction.join(' || ') }
+    header
+    puts @statement
   end
 
   def header

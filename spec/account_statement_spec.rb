@@ -9,7 +9,6 @@ describe Account do
       account.withdrawal(50)
       expect(account.transactions.flatten).to include(account.amount)
       expect(account.transactions.flatten).to include(account.balance)
-      expect(account.transactions.flatten).to include(a_kind_of(Time))
     end
 
     it 'statement can store multiple transactions' do

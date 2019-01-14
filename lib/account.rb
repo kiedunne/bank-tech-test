@@ -23,8 +23,7 @@ class Account
   end
 
   def update_statement
-    @transactions << [Time.now, @amount, @balance]
-    # (Time.new).strftime(%d%m%Y)
+    @transactions << [Time.new.strftime('%d%m%Y'), @amount, @balance]
   end
 
   def print_statement

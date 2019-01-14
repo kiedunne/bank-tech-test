@@ -2,12 +2,12 @@
 
 # Account class handles balance
 class Account
-  attr_reader :balance, :statement, :amount
+  attr_reader :balance, :transactions, :amount, :statement
 
   def initialize
     @balance = 0
     @amount = 0
-    @statement = []
+    @transactions = []
   end
 
   def deposit(amount)
@@ -23,6 +23,16 @@ class Account
   end
 
   def update_statement
-    @statement << [Time.now, @amount, @balance]
+    @transactions << [Time.now, @amount, @balance]
+    # (Time.new).strftime(%d%m%Y)
+  end
+
+  def print_statement
+    header
+    @statement = @transactions.map { |transaction| transaction.join(' || ') }
+  end
+
+  def header
+    puts 'date || credit || debit || balance'
   end
 end

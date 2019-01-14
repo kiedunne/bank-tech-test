@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kiedunne/bank-tech-test.svg?branch=master)](https://travis-ci.org/kiedunne/bank-tech-test)
+[![Coverage Status](https://coveralls.io/repos/github/kiedunne/bank-tech-test/badge.svg?branch=master)](https://coveralls.io/github/kiedunne/bank-tech-test?branch=master)
 
 Bank Tech Test
 =================

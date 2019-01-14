@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
+gem 'coveralls', require: false
+gem 'rake'
 gem 'rspec'
 gem 'rubocop', '0.56.0'
 gem 'simplecov', require: false

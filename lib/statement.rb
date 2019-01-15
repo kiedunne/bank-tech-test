@@ -10,19 +10,26 @@ class Statement
   end
 
   def print_statement
+    remove_zeros
+    format_transaction
     format_statement
     puts HEADER
-    @transactions = @statement.each_slice(4).to_a
-    @statement = @transactions.map do |transaction|
-      transaction.join(' || ')
-    end
     puts @statement
   end
 
-  def format_statement
+  def remove_zeros
     @statement = @transactions.flatten.map do |x|
       x == '0' ? '' : x
     end
-    @statement.each_slice(4).to_a
+  end
+
+  def format_transaction
+    @statement = @statement.each_slice(4).to_a
+  end
+
+  def format_statement
+    @statement = @statement.map do |transaction|
+      transaction.join(' || ')
+    end
   end
 end

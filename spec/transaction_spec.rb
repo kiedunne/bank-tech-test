@@ -5,18 +5,13 @@ require 'statement'
 require 'transaction'
 
 describe Transaction do
-  let(:transaction) { described_class.new('14/01/2019', '|| 10.00', '20.00') }
-
-  it 'sets transaction time, amount and balance' do
-    expect(transaction.time).to eq('14/01/2019')
-    expect(transaction.amount).to eq('|| 10.00')
-    expect(transaction.balance).to eq('20.00')
-  end
+  let(:transaction) { described_class.new(1000, 0, 3000) }
+  let(:another_transaction) { described_class.new(0, 2000, 1000) }
 
   it 'creates a transaction containing amount and balance' do
     expect(transaction.transaction.length).to eq(3)
-    expect(transaction.transaction).to include(transaction.time)
-    expect(transaction.transaction).to include(transaction.amount)
+    expect(transaction.transaction).to include(transaction.credit)
+    expect(transaction.transaction).to include(transaction.debit)
     expect(transaction.transaction).to include(transaction.balance)
   end
 
@@ -25,5 +20,17 @@ describe Transaction do
       transaction.add_transaction
       expect(transaction.transactions).to include(transaction.transaction)
     end
+  end
+
+  it 'formats credits correctly' do
+    transaction.add_transaction
+    expect(transaction.transaction).to include('1000.00')
+    expect(transaction.transaction).to include('3000.00')
+  end
+
+  it 'formats debits correctly' do
+    another_transaction.add_transaction
+    expect(another_transaction.transaction).to include('2000.00')
+    expect(another_transaction.transaction).to include('1000.00')
   end
 end

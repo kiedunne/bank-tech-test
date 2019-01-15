@@ -3,23 +3,23 @@
 # Statement class prints a statement of all transactions
 class Statement
   attr_reader :transactions, :statement
-  HEADER = 'date || credit || debit || balance'
+  HEADER = 'date || credit || debit || balanc e'
 
   def initialize(transactions)
     @transactions = transactions
   end
 
-  def print_statement(a)
-    remove_zeros(a)
+  def print_statement(transactions)
+    remove_zeros(transactions)
     format_transaction
     format_statement
     puts HEADER
     puts @statement
   end
 
-  def remove_zeros(a)
-    @statement = a.flatten.map do |x|
-      x == '0' ? '' : x
+  def remove_zeros(transactions)
+    @statement = transactions.flatten.map do |x|
+      x == '0.00' ? '' : x
     end
   end
 

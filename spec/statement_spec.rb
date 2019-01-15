@@ -4,7 +4,9 @@ require 'account'
 require 'statement'
 
 describe Statement do
-  let(:account) { double :account, tran: [['14/01/2019', '0', '500', '2500.00'], ['14/01/2019', '2000.00', '0', '3000.00'], ['14/01/2019', '1000.00', '0', '1000.00']] }
+  let(:account) { double :account, tran: [['14/01/2019', '0.00', '500.00', '2500.00'],
+                                          ['14/01/2019', '2000.00', '0.00', '3000.00'],
+                                          ['14/01/2019', '1000.00', '0.00', '1000.00']] }
   let(:statement) { described_class.new(account.tran) }
   let(:header) { Statement::HEADER }
 
@@ -35,7 +37,7 @@ describe Statement do
   describe '#print_statement' do
     it 'prints statement in correct format' do
       statement.print_statement(account.tran)
-      expect(statement.statement).to eq(['14/01/2019 ||  || 500 || 2500.00',
+      expect(statement.statement).to eq(['14/01/2019 ||  || 500.00 || 2500.00',
                                          '14/01/2019 || 2000.00 ||  || 3000.00',
                                          '14/01/2019 || 1000.00 ||  || 1000.00'])
     end

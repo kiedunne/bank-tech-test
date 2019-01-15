@@ -21,17 +21,12 @@ class Transaction
   end
 
   def set_date
-    @date = Time.new
-    format_date
+    @date = Time.new.strftime('%d/%m/%Y')
   end
 
   def format_transaction
     @transaction = @transaction.flatten.map do |transaction|
       format('%.2f', transaction)
     end
-  end
-
-  def format_date
-    @date.strftime('%d/%m/%Y')
   end
 end

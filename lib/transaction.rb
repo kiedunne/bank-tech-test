@@ -4,15 +4,13 @@
 class Transaction
   attr_reader :date, :credit, :debit, :balance, :transaction, :transactions
 
-  def initialize(credit, debit, balance)
-    @credit = format('%.2f', credit)
-    @debit = format('%.2f', debit)
-    @balance = format('%.2f', balance)
-    @transaction = [@credit, @debit, @balance]
+  def initialize
     @transactions = []
   end
 
-  def add_transaction
+  def add_transaction(credit = 0, debit = 0, balance = 0)
+    @transaction = [credit, debit, balance]
+    format_transaction
     add_date
     @transactions.unshift(@transaction)
   end
@@ -23,6 +21,17 @@ class Transaction
   end
 
   def set_date
-    @date = Time.new.strftime('%d/%m/%Y')
+    @date = Time.new
+    format_date
+  end
+
+  def format_transaction
+    @transaction = @transaction.flatten.map do |transaction|
+      format('%.2f', transaction)
+    end
+  end
+
+  def format_date
+    @date.strftime('%d/%m/%Y')
   end
 end

@@ -4,32 +4,25 @@ require 'account'
 require 'transaction'
 
 describe Transaction do
-  let(:transaction) { described_class.new(1000, 0, 3000) }
-  let(:another_transaction) { described_class.new(0, 2000, 1000) }
-
-  it 'creates a transaction containing fromatted credit, debit and balance' do
-    expect(transaction.transaction.length).to eq(3)
-    expect(transaction.transaction).to include('1000.00')
-    expect(transaction.transaction).to include('0.00')
-    expect(transaction.transaction).to include('3000.00')
-  end
+  let(:transaction) { described_class.new }
 
   describe '#add_transaction' do
     it 'adds transaction to transaction list' do
-      transaction.add_transaction
+      transaction.add_transaction(1000, 0, 1000)
       expect(transaction.transactions).to include(transaction.transaction)
     end
   end
 
   it 'formats credits correctly' do
-    transaction.add_transaction
+    transaction.add_transaction(1000, 0, 3000)
     expect(transaction.transaction).to include('1000.00')
     expect(transaction.transaction).to include('3000.00')
+    expect(transaction.transaction).to include('0.00')
   end
 
   it 'formats debits correctly' do
-    another_transaction.add_transaction
-    expect(another_transaction.transaction).to include('2000.00')
-    expect(another_transaction.transaction).to include('1000.00')
+    transaction.add_transaction(0, 500, 2500)
+    expect(transaction.transaction).to include('500.00')
+    expect(transaction.transaction).to include('0.00')
   end
 end

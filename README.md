@@ -27,6 +27,15 @@ rspec
 * SimpleCov
 * Travis CI
 
+### Approach
+
+* Review program requirements and diagram potential classes and their methods
+* Write a feature test in pseudo code, then break down into smaller unit unit
+* Write unit test, let it fail, then implement small lines of code to pass each unit test
+* Refactor each class in line with the Single Responsibility Principle(SRP)
+* Commit changes
+* Repeat process for each unit test
+
 ### Requirements
 
 * You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)

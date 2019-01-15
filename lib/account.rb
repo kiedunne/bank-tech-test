@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-# Account class handles balance
+# Account class handles deposit, withdrawal and balance
 class Account
-  attr_reader :balance
+  attr_reader :credit, :debit, :balance
   DEFAULT_AMOUNT = 0
 
   def initialize
-    @balance = DEFAULT_AMOUNT
     @credit = DEFAULT_AMOUNT
     @debit = DEFAULT_AMOUNT
+    @balance = DEFAULT_AMOUNT
   end
 
   def deposit(amount)

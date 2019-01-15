@@ -7,27 +7,17 @@ class Account
 
   def initialize
     @balance = DEFAULT_AMOUNT
-    @credit = 0
-    @debit = 0
+    @credit = DEFAULT_AMOUNT
+    @debit = DEFAULT_AMOUNT
   end
 
   def deposit(amount)
-    new_credit(amount)
+    @credit = amount
     @balance += amount
   end
 
   def withdrawal(amount)
-    new_debit(amount)
-    @balance -= amount
-  end
-
-  private
-
-  def new_credit(amount)
-    @credit = amount
-  end
-
-  def new_debit(amount)
     @debit = amount
+    @balance -= amount
   end
 end

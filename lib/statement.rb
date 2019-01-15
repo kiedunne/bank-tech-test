@@ -9,16 +9,16 @@ class Statement
     @transactions = transactions
   end
 
-  def print_statement
-    remove_zeros
+  def print_statement(a)
+    remove_zeros(a)
     format_transaction
     format_statement
     puts HEADER
     puts @statement
   end
 
-  def remove_zeros
-    @statement = @transactions.flatten.map do |x|
+  def remove_zeros(a)
+    @statement = a.flatten.map do |x|
       x == '0' ? '' : x
     end
   end

@@ -5,5 +5,17 @@ require 'statement'
 require 'transaction'
 
 describe 'Feature: Make multiple transactions and see statement' do
-  let(:account1) { Account.new(Transaction.new) }
+  let(:account) { Account.new }
+  let(:statement) { Statement.new(account.transaction) }
+
+  it 'A user can make multiple withdrawals and deposits and see statement' do
+    account.deposit(2000)
+    account.deposit(1000)
+    account.withdrawal(500)
+    p a = statement.transactions.transactions
+    p statement.print_statement(a)
+    # expect(statement.statement).to eq(['15/01/2019 ||  || 500 || 2500.00',
+    #                                    '15/01/2019 || 2000.00 ||  || 3000.00',
+    #                                    '15/01/2019 || 1000.00 ||  || 1000.00'])
+  end
 end

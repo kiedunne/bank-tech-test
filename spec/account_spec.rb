@@ -3,7 +3,7 @@
 require 'account'
 describe Account do
   let(:account) { described_class.new }
-  let(:default_balance) { Account::DEFAULT_BALANCE }
+  let(:default_balance) { Account::DEFAULT_AMOUNT }
 
   it 'can print initial account balance' do
     expect(account.balance).to eq default_balance

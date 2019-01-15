@@ -2,11 +2,13 @@
 
 # Account class handles balance
 class Account
-  attr_reader :balance, :debit, :credit
-  DEFAULT_BALANCE = 0
+  attr_reader :balance
+  DEFAULT_AMOUNT = 0
 
   def initialize
-    @balance = DEFAULT_BALANCE
+    @balance = DEFAULT_AMOUNT
+    @credit = 0
+    @debit = 0
   end
 
   def deposit(amount)

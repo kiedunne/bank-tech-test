@@ -4,7 +4,7 @@ require 'account'
 describe Account do
   subject { described_class.new(transactions) }
   let(:transactions) { spy 'transactions' }
-  
+
   describe '#deposit' do
     it 'transaction balance changes when a deposit is made' do
       expect(transactions).to receive(:add_transaction).with(1000, 0, 1000)

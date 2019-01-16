@@ -4,7 +4,7 @@ require_relative 'transactions.rb'
 require_relative 'statement.rb'
 # Account class handles deposit, withdrawal and balance
 class Account
-  attr_reader :balance, :transactions
+  attr_reader :transactions
   DEFAULT_AMOUNT = 0
 
   def initialize(transactions = Transactions.new)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'timecop'
 require 'account'
 require 'statement'
@@ -23,7 +24,7 @@ describe 'Feature: Make multiple transactions and see statement' do
     a = statement.transactions.transactions
     statement.print_statement(a)
     expect(statement.statement).to eq(['16/01/2019 ||  || 500.00 || 2500.00',
-                                      '16/01/2019 || 2000.00 ||  || 3000.00',
-                                      '16/01/2019 || 1000.00 ||  || 1000.00'])
+                                       '16/01/2019 || 2000.00 ||  || 3000.00',
+                                       '16/01/2019 || 1000.00 ||  || 1000.00'])
   end
 end

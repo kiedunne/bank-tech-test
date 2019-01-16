@@ -35,12 +35,15 @@ date || credit || debit || balance
 
 ### Run Tests
 
+All unit and feature tests are run with rspec. Code coverage is 100%
 ```
+cd bank-tech-test
 rspec
 ```
 
 ### Run Linter
 
+Run linter with rubocop. Code contains zero offenses.
 ```
 rubocop
 ```

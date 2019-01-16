@@ -13,11 +13,11 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    transactions.add_transaction(amount, 0, @balance)
+    @transactions.add_transaction(amount, 0, @balance)
   end
 
   def withdrawal(amount)
     @balance -= amount
-    transactions.add_transaction(0, amount, @balance)
+    @transactions.add_transaction(0, amount, @balance)
   end
 end

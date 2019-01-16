@@ -2,7 +2,7 @@
 
 # Transaction class creates individual transactions
 class Transactions
-  attr_reader :date, :credit, :debit, :balance, :transaction, :transactions
+  attr_reader :transactions, :transaction
 
   def initialize
     @transactions = []
@@ -14,6 +14,8 @@ class Transactions
     add_date
     @transactions.unshift(@transaction)
   end
+
+private
 
   def add_date
     set_date

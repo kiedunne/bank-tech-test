@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'timecop'
 require 'account'
 require 'statement'
 require 'transactions'
@@ -8,13 +8,13 @@ describe 'Feature: Make multiple transactions and see statement' do
   let(:account) { Account.new }
   let(:statement) { Statement.new(account.transactions) }
 
-  # before do
-  #   Timecop.freeze(Time.local(2019))
-  # end
-  #
-  # after do
-  #   Timecop.return
-  # end
+  before do
+    Timecop.freeze(Time.local(2019, 1, 16))
+  end
+
+  after do
+    Timecop.return
+  end
 
   it 'A user can make multiple withdrawals and deposits and see statement' do
     account.deposit(1000)

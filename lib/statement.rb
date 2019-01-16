@@ -10,27 +10,28 @@ class Statement
   end
 
   def print_statement(transactions)
-    remove_zeros(transactions)
-    format_transaction
+    format_transaction(transactions)
     format_statement
     puts HEADER
     puts @statement
   end
 
-private
+  private
 
-  def remove_zeros(transactions)
-    @statement = transactions.flatten.map do |x|
+  def format_transaction(transactions)
+    @statement = transactions.each do |txn|
+      remove_zeros(txn)
+    end
+  end
+
+  def remove_zeros(transaction)
+    transaction.map! do |x|
       x == '0.00' ? '' : x
     end
   end
 
-  def format_transaction
-    @statement = @statement.each_slice(4).to_a
-  end
-
   def format_statement
-    @statement = @statement.map do |transaction|
+    @statement.map! do |transaction|
       transaction.join(' || ')
     end
   end

@@ -2,8 +2,8 @@
 
 require 'account'
 describe Account do
-  subject { described_class.new(transaction) }
-  let(:transaction) { spy('transaction') }
+  subject { described_class.new(transactions) }
+  let(:transactions) { Transactions.new }
   let(:default_balance) { Account::DEFAULT_AMOUNT }
 
   it 'can print initial account balance' do
@@ -16,8 +16,8 @@ describe Account do
     end
 
     it 'makes a new transaction with a deposit' do
-      expect(transaction).to receive(:add_transaction).with(1000, 0, 1000)
       subject.deposit(1000)
+      expect(transactions.transactions).to include(transactions.transaction)
     end
   end
 
@@ -27,8 +27,8 @@ describe Account do
     end
 
     it 'makes a new transaction with a withdrawal' do
-      expect(transaction).to receive(:add_transaction).with(0, 500, -500)
       subject.withdrawal(500)
+      expect(transactions.transactions).to include(transactions.transaction)
     end
   end
 end

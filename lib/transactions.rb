@@ -15,7 +15,7 @@ class Transactions
     @transactions.unshift(@transaction)
   end
 
-private
+  private
 
   def add_date
     set_date

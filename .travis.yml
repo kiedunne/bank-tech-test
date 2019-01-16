@@ -7,3 +7,5 @@ scripts:
   - bundle exec rspec spec
 after_script:
   - bundle exec rake coveralls:push
+env:
+  - CODECOV_TOKEN = 2ace1926-8027-46b0-b8c2-6f49b36f7c10

@@ -2,7 +2,8 @@
 
 require 'account'
 describe Account do
-  let(:subject) { described_class.new }
+  subject { described_class.new(transaction) }
+  let(:transaction) { spy('transaction') }
   let(:default_balance) { Account::DEFAULT_AMOUNT }
 
   it 'can print initial account balance' do

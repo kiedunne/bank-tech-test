@@ -12,8 +12,6 @@ class Statement
   def print_statement(transactions)
     format_transaction(transactions)
     format_statement
-    puts HEADER
-    puts @statement
   end
 
   private
@@ -34,5 +32,6 @@ class Statement
     @statement.map! do |transaction|
       transaction.join(' || ')
     end
+    @statement.unshift(HEADER)
   end
 end

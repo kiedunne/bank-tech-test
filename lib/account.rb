@@ -18,6 +18,7 @@ class Account
   end
 
   def withdrawal(amount)
+    raise 'Not enough funds.' if @balance < amount
     @balance -= amount
     @transactions.add_transaction(0, amount, @balance)
   end

@@ -22,8 +22,6 @@ describe Statement do
     context 'when transactions exist' do
       it 'prints statement in correct format' do
         subject.print_statement(account.transaction)
-        expect(subject.statement).not_to include('0.00')
-        expect(subject.statement.length).to eq(3)
         expect(subject.statement).to eq(example_statement)
       end
     end

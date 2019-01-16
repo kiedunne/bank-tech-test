@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/kiedunne/bank-tech-test.svg?branch=master)](https://travis-ci.org/kiedunne/bank-tech-test)
-[![Coverage Status](https://coveralls.io/repos/github/kiedunne/bank-tech-test/badge.svg?branch=master)](https://coveralls.io/github/kiedunne/bank-tech-test?branch=master)
-[![codecov](https://codecov.io/gh/kiedunne/bank-tech-test/branch/master/graph/badge.svg)](https://codecov.io/gh/kiedunne/bank-tech-test)
 Bank Tech Test
 =================
+[![Build Status](https://travis-ci.org/kiedunne/bank-tech-test.svg?branch=master)](https://travis-ci.org/kiedunne/bank-tech-test)
+[![codecov](https://codecov.io/gh/kiedunne/bank-tech-test/branch/master/graph/badge.svg)](https://codecov.io/gh/kiedunne/bank-tech-test)
+
 
 ### Local Setup
 

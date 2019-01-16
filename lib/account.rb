@@ -21,10 +21,4 @@ class Account
     @balance -= amount
     @transactions.add_transaction(0, amount, @balance)
   end
-
-  private
-
-  def update_balance(amount)
-    @balance += amount
-  end
 end

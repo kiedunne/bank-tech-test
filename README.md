@@ -12,10 +12,37 @@ cd bank-tech-test
 bundle install
 ```
 
+### Example Usage
+
+To make a 1000 deposit, 2000 deposit, 500 withdrawal, and see a printed statement, open irb and input the following commands:
+
+```
+require_relative './lib/account.rb'
+account = Account.new
+account.deposit(1000)
+account.deposit(2000)
+account.withdrawal(500)
+statement = Statement.new(account.transactions.transactions)
+statement.print_statement(account.transactions.transactions)
+```
+statement output:
+```
+date || credit || debit || balance
+16/01/2019 ||  || 500.00 || 2500.00
+16/01/2019 || 2000.00 ||  || 3000.00
+16/01/2019 || 1000.00 ||  || 1000.00
+```
+
 ### Run Tests
 
 ```
 rspec
+```
+
+### Run Linter
+
+```
+rubocop
 ```
 
 ### Technology

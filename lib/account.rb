@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'transactions.rb'
+require_relative 'statement.rb'
 # Account class handles deposit, withdrawal and balance
 class Account
   attr_reader :balance, :transactions

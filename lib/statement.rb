@@ -3,7 +3,7 @@
 # Statement class prints a statement of all transactions
 class Statement
   attr_reader :transactions, :statement
-  HEADER = 'date || credit || debit || balanc e'
+  HEADER = 'date || credit || debit || balance'
 
   def initialize(transactions)
     @transactions = transactions

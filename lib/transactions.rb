@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Transaction class creates individual transactions
-class Transaction
+class Transactions
   attr_reader :date, :credit, :debit, :balance, :transaction, :transactions
 
   def initialize

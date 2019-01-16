@@ -17,6 +17,8 @@ class Statement
     puts @statement
   end
 
+private
+
   def remove_zeros(transactions)
     @statement = transactions.flatten.map do |x|
       x == '0.00' ? '' : x

@@ -11,7 +11,7 @@ class Statement
   end
 
   def print_statement
-    remove_zeros
+    puts remove_zeros
   end
 
   private

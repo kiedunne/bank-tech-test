@@ -5,6 +5,10 @@ class Statement
   attr_reader :statement
   HEADER = 'date || credit || debit || balance'
 
+  def initialize(transactions)
+    @transactions = transactions
+  end
+
   def print_statement(transactions)
     format_transaction(transactions)
     format_statement

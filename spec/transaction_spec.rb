@@ -6,7 +6,7 @@ require 'transaction'
 require 'timecop'
 
 describe Transaction do
-  let(:subject) { described_class.new(1000, 0, 1000) }
+  let(:subject) { described_class.new }
 
   describe '#add_transaction' do
     before do
@@ -16,9 +16,11 @@ describe Transaction do
       Timecop.return
     end
 
-    it 'has time, credit, debit and balance values' do
-      expect(subject.transaction.length).to eq(4)
-      expect(subject.transaction).to eq(example_single_transaction)
+    it 'adds transaction to transaction list' do
+      subject.add_transaction(1000, 0, 1000)
+      subject.add_transaction(2000, 0, 3000)
+      subject.add_transaction(0, 500, 2500)
+      expect(subject.transactions).to eq(example_transactions)
     end
   end
 end

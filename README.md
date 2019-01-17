@@ -22,7 +22,7 @@ account = Account.new
 account.deposit(1000)
 account.deposit(2000)
 account.withdrawal(500)
-statement = Statement.new
+statement = Statement.new(account.transactions)
 statement.print_statement(account.transactions)
 ```
 statement output:

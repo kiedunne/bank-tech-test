@@ -7,7 +7,7 @@ require 'account'
 require 'statement'
 
 describe Statement do
-  subject { described_class.new }
+  subject { described_class.new(account) }
   let(:account) { double :account, transactions: example_transactions }
   let(:header) { Statement::HEADER }
 

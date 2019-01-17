@@ -8,7 +8,7 @@ require 'transaction'
 
 describe 'Feature: Make multiple transactions and see statement' do
   let(:account) { Account.new }
-  let(:statement) { Statement.new }
+  let(:statement) { Statement.new(account.transactions) }
 
   before do
     Timecop.freeze(Time.local(2019, 1, 16))

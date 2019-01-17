@@ -33,7 +33,7 @@ date || credit || debit || balance
 16/01/2019 || 1000.00 ||  || 1000.00
 ```
 example interaction:
-![Screenshot](bank_screen.png)
+![Screenshot](example_irb.png)
 
 ### Run Tests
 

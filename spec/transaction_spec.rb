@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative './helpers/example_single_transaction.rb'
 require 'account'
 require 'transaction'
 require 'timecop'

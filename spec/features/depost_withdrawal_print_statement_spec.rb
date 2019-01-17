@@ -18,11 +18,19 @@ describe 'Feature: Make multiple transactions and see statement' do
     Timecop.return
   end
 
-  it 'A user can make multiple withdrawals and deposits and see statement' do
+  it 'can make multiple withdrawals and deposits and see statement' do
     account.deposit(1000)
     account.deposit(2000)
     account.withdrawal(500)
-    statement.print_statement(account.transactions)
+    statement.print_statement
+    expect(statement.statement).to eq(example_statement)
+  end
+  it 'can print statement twice' do
+    account.deposit(1000)
+    account.deposit(2000)
+    account.withdrawal(500)
+    statement.print_statement
+    statement.print_statement
     expect(statement.statement).to eq(example_statement)
   end
 end

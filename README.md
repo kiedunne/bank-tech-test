@@ -23,7 +23,7 @@ account.deposit(1000)
 account.deposit(2000)
 account.withdrawal(500)
 statement = Statement.new(account.transactions)
-statement.print_statement(account.transactions)
+statement.print_statement
 ```
 statement output:
 ```
@@ -32,6 +32,8 @@ date || credit || debit || balance
 16/01/2019 || 2000.00 ||  || 3000.00
 16/01/2019 || 1000.00 ||  || 1000.00
 ```
+example interaction:
+![Screenshot](bank_screen.png)
 
 ### Run Tests
 

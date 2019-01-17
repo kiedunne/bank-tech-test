@@ -8,7 +8,7 @@ require 'statement'
 
 describe Statement do
   subject { described_class.new(example_transactions) }
-  let(:header) { 'date || credit || debit || balance' }
+  let(:header) { Statement::HEADER }
 
   describe '#print_statement' do
     before do

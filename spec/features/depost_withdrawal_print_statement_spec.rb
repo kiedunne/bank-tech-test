@@ -22,7 +22,7 @@ describe 'Feature: Make multiple transactions and see statement' do
     account.deposit(1000)
     account.deposit(2000)
     account.withdrawal(500)
-    statement.print_statement
+    p statement.print_statement
     expect(statement.statement).to eq(example_statement)
   end
   it 'can print statement twice' do

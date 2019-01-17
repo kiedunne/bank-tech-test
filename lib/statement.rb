@@ -4,13 +4,14 @@
 # Statement class prints a statement of all transactions
 class Statement
   attr_reader :transactions, :statement
+  HEADER = "date || credit || debit || balance\n"
 
   def initialize(transactions)
     @transactions = transactions
   end
 
   def print_statement
-    print_header
+    puts HEADER
     remove_zeros
   end
 
@@ -29,10 +30,8 @@ class Statement
     @statement = @statement.map do |transaction|
       transaction.join(' || ')
     end
-    puts @statement
-  end
-
-  def print_header
-    puts 'date || credit || debit || balance'
+    @statement = @statement.each do |x|
+      x << "\n"
+    end
   end
 end

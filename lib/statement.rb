@@ -11,7 +11,6 @@ class Statement
   end
 
   def print_statement
-    puts HEADER
     remove_zeros
   end
 
@@ -33,5 +32,6 @@ class Statement
     @statement = @statement.each do |x|
       x << "\n"
     end
+    @statement.unshift(HEADER)
   end
 end

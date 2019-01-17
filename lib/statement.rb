@@ -2,12 +2,8 @@
 
 # Statement class prints a statement of all transactions
 class Statement
-  attr_reader :transactions, :statement
+  attr_reader :statement
   HEADER = 'date || credit || debit || balance'
-
-  def initialize(transactions)
-    @transactions = transactions
-  end
 
   def print_statement(transactions)
     format_transaction(transactions)

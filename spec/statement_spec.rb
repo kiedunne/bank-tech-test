@@ -7,8 +7,8 @@ require 'account'
 require 'statement'
 
 describe Statement do
-  subject { described_class.new(account.transaction) }
-  let(:account) { double :account, transaction: example_transactions }
+  subject { described_class.new }
+  let(:account) { double :account, transactions: example_transactions }
   let(:header) { Statement::HEADER }
 
   describe '#print_statement' do
@@ -21,7 +21,7 @@ describe Statement do
 
     context 'when transactions exist' do
       it 'prints statement in correct format' do
-        subject.print_statement(account.transaction)
+        subject.print_statement(account.transactions)
         expect(subject.statement).to eq(example_statement)
       end
     end
@@ -29,7 +29,7 @@ describe Statement do
     context 'when no transactions exist' do
       it 'prints header' do
         expect(subject).to receive(:print_statement).and_return(header)
-        subject.print_statement(account.transaction)
+        subject.print_statement(account.transactions)
       end
     end
   end

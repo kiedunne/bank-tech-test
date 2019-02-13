@@ -3,11 +3,10 @@
 require_relative './helpers/example_transactions.rb'
 require_relative './helpers/example_statement.rb'
 require 'timecop'
-require 'account'
 require 'statement'
 
 describe Statement do
-  subject { described_class.new(example_transactions) }
+  subject { described_class.new }
   let(:header) { Statement::HEADER }
 
   describe '#print_statement' do
@@ -20,15 +19,14 @@ describe Statement do
 
     context 'when transactions exist' do
       it 'prints statement in correct format' do
-        subject.print_statement
-        expect(subject.statement).to eq(example_statement)
+        expect(subject.print_statement(ex_transactions)).to eq(ex_statement)
       end
     end
 
     context 'when no transactions exist' do
       it 'prints header' do
         expect(subject).to receive(:print_statement).and_return(header)
-        subject.print_statement
+        subject.print_statement(ex_transactions)
       end
     end
   end

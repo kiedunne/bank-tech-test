@@ -11,26 +11,17 @@ class Statement
   end
 
   def print_statement
-    puts remove_zeros
+    format_statement
   end
 
   private
 
-  def remove_zeros
-    @statement = @transactions.each do |transaction|
+  def format_statement
+    @statement = @transactions.map do |transaction|
       transaction.map! do |x|
         x == '0.00' ? '' : x
       end
-    end
-    format_statement
-  end
-
-  def format_statement
-    @statement = @statement.map do |transaction|
-      transaction.join(' || ')
-    end
-    @statement = @statement.each do |x|
-      x << "\n"
+      transaction.join(' || ') << "\n"
     end
     @statement.unshift(HEADER)
   end

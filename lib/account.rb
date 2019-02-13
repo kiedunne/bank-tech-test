@@ -11,19 +11,29 @@ class Account
   end
 
   def deposit(amount)
-    raise 'Not an integer.' if amount.is_a?(Integer) == false
+    error_check(amount)
     @balance += amount
     @record.add_transaction(amount, 0, @balance)
   end
 
   def withdrawal(amount)
-    raise 'Not an integer.' if amount.is_a?(Integer) == false
-    raise 'Not enough funds.' if @balance < amount
+    error_check(amount)
+    overdraft_check(amount)
     @balance -= amount
     @record.add_transaction(0, amount, @balance)
   end
 
   def transactions
     @record.transactions
+  end
+
+  private
+
+  def error_check(amount)
+    raise 'Not an integer.' if amount.is_a?(Integer) == false
+  end
+
+  def overdraft_check(amount)
+    raise 'Not enough funds.' if @balance < amount
   end
 end
